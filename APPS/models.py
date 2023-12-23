@@ -7,5 +7,7 @@ class Post(models.Model):
     conteudo = models.TextField()
     data_publicacao = models.DateTimeField(default=datetime.now())
 
+    def __str__(self):
+        return self.titulo
 
 
