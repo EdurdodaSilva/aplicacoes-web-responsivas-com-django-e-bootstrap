@@ -11,5 +11,9 @@
             <a href="{%  url 'post_detail' post.id %}">{{ post.titulo }} - {{ post.autor }}</a>
         {% endfor %}
     </ul>
+
+    {% load static %}
+    <img src="{% static 'APPS/Foto-gisa.jpg'%}">
+
 </body>
 </html>
