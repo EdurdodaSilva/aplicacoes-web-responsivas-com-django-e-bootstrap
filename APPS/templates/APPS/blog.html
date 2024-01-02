@@ -1,0 +1,72 @@
+<!doctype html>
+{% load static %}
+<html lang="pt-br">
+  <head>
+
+    <meta charset="utf-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1">
+
+
+    <link href="https://cdn.jsdelivr.net/npm/bootstrap@5.0.2/dist/css/bootstrap.min.css" rel="stylesheet" integrity="sha384-EVSTQN3/azprG1Anm3QDgpJLIm9Nao0Yz1ztcQTwFspd3yD65VohhpuuCOmLASjC" crossorigin="anonymous">
+
+    <title>Blog</title>
+  </head>
+  <body>
+  <div class="container-fluid bg-dark">
+    <div class="row justify-content-center ">
+      <div class="col-xl-8">
+        <header class="bg-dark">
+
+          {% include 'fragments/navbar.html' %}
+          {% include 'fragments/carousel.html' %}
+
+
+        </header>
+      </div>
+    </div>
+  </div>
+
+  <main class="" style="background-color:#FEFFD8">
+    <div class="container-fluid ">
+      <div class="row justify-content-center">
+        <div class="col-xl-7">
+          {% for post in posts %}
+            <div class="card my-3 px-3  ">
+              <a href="{% url 'post_detail' post.id %}"><img src="{{ post.imagem_capa.url }}"
+                  class="card-img-top" alt="Imagem do card"></a>
+              <div class="card-body pb-4">
+                <a href="{% url 'post_detail' post.id %}" class="text-decoration-none text-dark">
+                  <h5 class="card-title text-decoration-none">{{ post.titulo }}</h5></a>
+                <p class="card-text">{{ post.resumo | safe }}</p>
+                <p>
+                  <small class="text-muted">{{ post.data_publicacao }}</small>
+                </p>
+                <div class="row">
+                  <div class="col-12">
+                    <div class="d-flex justify-content-center">
+                      <div class="span btn">
+                        <i class="fa-solid fa-heart"></i> Curtir
+                      </div>
+                      <div class="span btn ps-4 pe-4">
+                        <i class="fa-solid fa-comment"></i> Comentar
+                      </div>
+                      <div class="span btn">
+                        <i class="fa-solid fa-share"></i> Compartilhar
+                      </div>
+                    </div>
+                  </div>
+                </div>
+              </div>
+            </div>
+          {% endfor %}
+        </div>
+      </div>
+    </div>
+  </main>
+
+
+  <script src="https://cdn.jsdelivr.net/npm/bootstrap@5.0.2/dist/js/bootstrap.bundle.min.js" integrity="sha384-MrcW6ZMFYlzcLA8Nl+NtUVF0sA7MsXsP1UyJoMp4YLEuNSfAP+JcXn/tWtIaxVXM" crossorigin="anonymous"></script>
+
+
+  </body>
+</html>

@@ -26,6 +26,9 @@ INSTALLED_APPS = [
     'django.contrib.messages',
     'django.contrib.staticfiles',
     'APPS.apps.AppsConfig',
+    'contato.apps.ContatoConfig',
+    'cursos.apps.CursosConfig',
+    'autenticacao.apps.AutenticacaoConfig',
     'exemplos.apps.ExemplosConfig',
     'ckeditor',
     'ckeditor_uploader',
@@ -47,7 +50,7 @@ ROOT_URLCONF = 'core.urls'
 TEMPLATES = [
     {
         'BACKEND': 'django.template.backends.django.DjangoTemplates',
-        'DIRS': [],
+        'DIRS': [os.path.join(BASE_DIR, 'templates')],
         'APP_DIRS': True,
         'OPTIONS': {
             'context_processors': [
