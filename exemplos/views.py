@@ -1,7 +1,8 @@
 from django.http import HttpResponseRedirect
 from django.shortcuts import render, HttpResponse
+
 import re
-from exemplos.forms import FormExemplo
+from exemplos.form_exemplo import FormExemplo
 
 
 def get_bootstrap(request):
@@ -68,7 +69,7 @@ def processa_formulario_v1(request):
             "senha_st": senha_st
         }
 
-        return render(request, 'exemplos/16_forms_parte_i.html', context)
+        return render(request, 'exemplos/13_forms_parte.html', context)
 
 
 # esta view faz validações com base na classe FormExemplo.
@@ -84,7 +85,7 @@ def processa_formulario_v2(request):
             return HttpResponse("Formulário validado com sucesso. {} - {} - {}".format(email, pwd, msg))
         else:
             print("Deu ruim!!!!")
-    return render(request, 'exemplos/17_forms_parte_ii.html', {'form': form})
+    return render(request, 'exemplos/14_forms_parte_i.html', {'form': form})
 
 
 
