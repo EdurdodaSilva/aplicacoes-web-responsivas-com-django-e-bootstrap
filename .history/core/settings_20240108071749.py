@@ -1,5 +1,5 @@
 import django
-
+django.setup()
 import os.path
 from pathlib import Path
 from dotenv import load_dotenv
@@ -7,7 +7,6 @@ load_dotenv()
 
 # Build paths inside the project like this: BASE_DIR / 'subdir'.
 BASE_DIR = Path(__file__).resolve().parent.parent
-
 
 
 # Quick-start development settings - unsuitable for production
@@ -140,10 +139,6 @@ MEDIA_URL = 'images/'
 MEDIA_ROOT = os.path.join(BASE_DIR, 'static/images')
 
 CKEDITOR_UPLOAD_PATH = 'uploads/'
-
-STATICFILES_DIRS = [
-    os.path.join(BASE_DIR, 'staticfiles/'),
-]
 
 LOGIN_REDIRECT_URL = 'home'
 LOGOUT_REDIRECT_URL = 'login'
